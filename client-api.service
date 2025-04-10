@@ -1,0 +1,15 @@
+[Unit]
+Description=Client Management API
+After=network.target
+
+[Service]
+User=fea53f3a-5a80-40b0-bOf0-2989cea48d1t       # Replace with the user that will run the app
+WorkingDirectory=/path/to/your/project
+EnvironmentFile=/path/to/your/project/.env # If you still use .env (less recommended for prod)
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+StandardOutput=journalctl
+StandardError=journalctl
+
+[Install]
+WantedBy=multi-user.target
